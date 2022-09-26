@@ -2,9 +2,10 @@ module bar () {
     difference() {
         cube([190,20,12]);
         translate([10,2,2])
-        for (i=[0:11]) {
-            translate([15*i,0,0]) cube([1.5,16,10]);
-        }
+            for (i=[0:11]) {
+                translate([15*i,0,0]) cube([1.5,16,10]);
+                translate([15*i-6.5,0,15.5]) rotate([0,45,0]) cube([10,16,10]);
+            }
     }
 }
 
