@@ -2,16 +2,19 @@ use <base.scad>;
 
 $fn=25;
 
-p0x = 12;
-p0y = 15;
+y_offset = 10;
+x_offset = -4;
 
-p1x = p0x + 1.4;
-p1y = p0y + 49;
+p0x = 13.97 + x_offset;
+p0y = 7.62 + y_offset;
 
-p2x = p1x + 75;
+p1x = 15.24 + x_offset;
+p1y = 55.88 + y_offset;
+
+p2x = 90.17 + x_offset;
 p2y = p1y;
 
-p3x = p1x + 82;
+p3x = 96.52 + x_offset;
 p3y = p0y;
 
 difference() {
@@ -30,7 +33,7 @@ difference() {
     translate([p2x, p2y, 0]) cylinder(d1=8, d2=3,h=3);
     translate([p3x, p3y, 0]) cylinder(d=3,h=5);
     translate([p3x, p3y, 0]) cylinder(d1=8, d2=3,h=3);
-    translate([17,15,0])     cube([65, 70,2]);
+    translate([23,15,0])     cube([55, 70,2]);
 }
 
 

@@ -16,7 +16,7 @@ module peg(){
 
 module raised_peg(h=0) {
     translate([0,0,h]) cylinder(h=4,d=4);
-    translate([0,0,h+4])peg(h);
+    translate([0,0,h+4]) peg();
 }
 
 module clip(height) {
