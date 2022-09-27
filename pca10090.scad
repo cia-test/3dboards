@@ -20,23 +20,21 @@ p3y = p0y;
 difference() {
     union() {
         baseplate();
-        translate([p0x, p0y, 0]) cylinder(d=6,h=5);
-        translate([p1x, p1y, 0]) cylinder(d=6,h=5);
-        translate([p2x, p2y, 0]) cylinder(d=6,h=5);
-        translate([p3x, p3y, 0]) cylinder(d=6,h=5);
+        translate([p0x, p0y, 0]) cylinder(d=7,h=5);
+        translate([p1x, p1y, 0]) cylinder(d=7,h=5);
+        translate([p2x, p2y, 0]) cylinder(d=7,h=5);
+        translate([p3x, p3y, 0]) cylinder(d=7,h=5);
     }
     translate([p0x, p0y, 0]) cylinder(d=3,h=5);
-    translate([p0x, p0y, 0]) cylinder(d1=8, d2=3,h=3);
+    translate([p0x, p0y, 0]) cylinder(r=3.2,h=2.1,$fn=6); 
     translate([p1x, p1y, 0]) cylinder(d=3,h=5);
-    translate([p1x, p1y, 0]) cylinder(d1=8, d2=3,h=3);
+    translate([p1x, p1y, 0]) cylinder(r=3.2,h=2.1,$fn=6); 
     translate([p2x, p2y, 0]) cylinder(d=3,h=5);
-    translate([p2x, p2y, 0]) cylinder(d1=8, d2=3,h=3);
+    translate([p2x, p2y, 0]) cylinder(r=3.2,h=2.1,$fn=6); 
     translate([p3x, p3y, 0]) cylinder(d=3,h=5);
-    translate([p3x, p3y, 0]) cylinder(d1=8, d2=3,h=3);
+    translate([p3x, p3y, 0]) cylinder(r=3.2,h=2.1,$fn=6); 
     translate([23,15,0])     cube([55, 70,2]);
 }
-
-
 
 linear_extrude(height=2.2) {
     translate([2,90,0]) text("pca10090", size=8);
