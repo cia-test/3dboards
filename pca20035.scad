@@ -1,7 +1,8 @@
 use <base.scad>;
+
 $fn = 30;
 
-y_offset = 10;
+y_offset = 20;
 x_offset = 7;
 
 p0x = x_offset;
@@ -13,28 +14,32 @@ p1y = 33.8+9.8+y_offset;
 p2x = 34.78 + x_offset;
 p2y = 33.8 + y_offset;
 
+mounting_holes = [
+    [p0x, p0y, 0],
+    [p1x, p1y, 0],
+    [p2x, p2y, 0],
+];
+
 difference() {
     union() {
         baseplate();
-        translate([p0x, p0y, 0]) cylinder(d=6,h=6);
-        translate([p1x, p1y, 0]) cylinder(d=4,h=6);
-        translate([p2x, p2y, 0]) cylinder(d=6,h=6);
+        for (i = mounting_holes) {
+            translate(i) cylinder(d=6,h=6);
+        }
     }
-    translate([p0x, p0y, 0]) cylinder(d=3,h=6);
-    translate([p0x, p0y, 0]) cylinder(d1=8, d2=3,h=3);
-    translate([p2x, p2y, 0]) cylinder(d=3,h=6);
-    translate([p2x, p2y, 0]) cylinder(d1=8, d2=3,h=3);
-
-    translate([15,55,0])     cube([70, 30,2]);
-    translate([15,15,0])     cube([70, 20,2]);
+    for (i = mounting_holes) {
+        translate(i) cylinder(d=3.2,h=6);
+        translate(i) cylinder(d=7.4,h=1.4,$fn=6);
+        translate(i) translate([0,0,1.4])
+            cylinder(d1=7.4,d2=3.2,h=1.4,$fn=6);
+    }
+    translate([15, 10, 0]) cube([20, 70, 3]);
+    translate([50, 10, 0]) cube([43, 70, 3]);
 }
 
-
-
-linear_extrude(height=2.2) {
+linear_extrude(height=2.4) {
     translate([2,90,0]) text("pca20035", size=8);
 }
-
-linear_extrude(height=2.2) {
-    #translate([70,2,0]) text("v1.0.0", size=6);
+linear_extrude(height=2.4) {
+    translate([60,2,0]) text("v0.1-beta", size=6);
 }

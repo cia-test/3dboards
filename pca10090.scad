@@ -36,18 +36,16 @@ difference() {
     union() {
         baseplate();
         for (i = mounting_holes) {
-            
-            translate(i) cylinder(d1=8,d2=5,h=4);
+            translate(i) cylinder(d=6,h=4);
         }
     }
     for (i = mounting_holes) {
-        translate(i) cylinder(d=3.3,h=6);
-        translate(i) cylinder(d=7.6,h=1.4,$fn=6);
+        translate(i) cylinder(d=3.2,h=4);
+        translate(i) cylinder(d=7.4,h=1.4,$fn=6);
         translate(i) translate([0,0,1.4])
-            cylinder(d1=7.6,d2=3.3,h=1.4,$fn=6);
+            cylinder(d1=7.4,d2=3.2,h=1.4,$fn=6);
     }
-    translate([21,15,0]) cube([30, 70,3]);
-    translate([10,30,0]) cube([44, 23,3]);
+    translate([0,30,0]) cube([54, 23,2]);
 }
 
 linear_extrude(height=2.4) {
