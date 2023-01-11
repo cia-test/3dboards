@@ -28,3 +28,25 @@ module clip_on_cube (h1, h2) {
     cube([10, h1, 4]);
     translate([0, 0,h1]) clip(h2);
 }
+
+module main_cylinder(cyl_height) {
+    cylinder(d=6,h=cyl_height);
+}
+
+module holes(i, cyl_height) {
+    translate(i) cylinder(d=3.2,h=cyl_height);
+    translate(i) cylinder(d=6.8,h=1.4,$fn=6);
+    translate(i) translate([0,0,1.4]) cylinder(d1=6.8,d2=3.2,h=1.4,$fn=6);
+}
+
+module top_text(txt) {
+    linear_extrude(height=2.4) {
+        translate([2,90,0]) text(txt, size=8);
+    }
+}
+
+module bottom_text(txt) {
+    linear_extrude(height=2.4) {
+        translate([60,2,0]) text(txt, size=6);
+    }
+}

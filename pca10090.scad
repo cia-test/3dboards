@@ -1,6 +1,6 @@
 use <base.scad>;
 
-$fn=25;
+$fn=30;
 
 y_offset = 10;
 x_offset = -4;
@@ -23,6 +23,8 @@ p4y = p1y - 15.2;
 p5x = p4x;
 p5y = p4y - 27.9;
 
+cyl_height = 4;
+
 mounting_holes = [
     [p0x, p0y, 0],
     [p1x, p1y, 0],
@@ -36,22 +38,16 @@ difference() {
     union() {
         baseplate();
         for (i = mounting_holes) {
-            translate(i) cylinder(d=6,h=4);
+            translate(i) main_cylinder(cyl_height);
         }
     }
     for (i = mounting_holes) {
-        translate(i) cylinder(d=3.2,h=4);
-        translate(i) cylinder(d=7.4,h=1.4,$fn=6);
-        translate(i) translate([0,0,1.4])
-            cylinder(d1=7.4,d2=3.2,h=1.4,$fn=6);
+        holes(i, cyl_height);
     }
     translate([0,30,0]) cube([54, 23,2]);
 }
 
-linear_extrude(height=2.4) {
-    translate([2,90,0]) text("arduino", size=8);
-}
-linear_extrude(height=2.4) {
-    translate([60,2,0]) text("v0.1-beta", size=6);
-}
+top_text("Arduino");
+
+bottom_text("v1.0");
 
