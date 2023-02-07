@@ -42,13 +42,3 @@ difference() {
 top_text("PPK2");
 
 bottom_text("v1.0");
-
-//translate ([150, 0,0]) cube([50,50,1]);
-difference() {
-    hull() {
-        translate ([150, 0,0]) cylinder(1,10,10);
-        translate ([170, 0,0]) cylinder(1,10,10);
-        translate ([170, 20,0]) cylinder(1,10,10);
-    }
-    translate ([150, 20,-1]) cylinder(3,10,10);
-}
