@@ -44,10 +44,12 @@ difference() {
     for (i = mounting_holes) {
         holes(i, cyl_height);
     }
-    translate([0,30,0]) cube([54, 23,2]);
+    translate([-1,30,-1]) cube([55, 23,4]);
+    translate([0,13,-1]) rotate([0,0,45]) cube([25,15,4]);
+    translate([-12,63,-1]) rotate([0,0,-45]) cube([32,15,4]);
 }
 
 top_text("Arduino");
 
-bottom_text("v1.0");
+bottom_text("v2.0");
 
