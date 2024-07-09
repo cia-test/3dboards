@@ -34,9 +34,9 @@ module main_cylinder(cyl_height) {
 }
 
 module holes(i, cyl_height) {
-    translate(i) cylinder(d=3.2,h=cyl_height);
-    translate(i) cylinder(d=6.8,h=1.4,$fn=6);
-    translate(i) translate([0,0,1.4]) cylinder(d1=6.8,d2=3.2,h=1.4,$fn=6);
+    translate(i) translate([0,0,-1]) cylinder(d=3.2,h=cyl_height+2);
+    translate(i) translate([0,0,-1]) cylinder(d=6.8,h=1.2+1,$fn=6);
+    translate(i) translate([0,0,1.2]) cylinder(d1=6.8,d2=3.2,h=1.4,$fn=6);
 }
 
 module top_text(txt) {

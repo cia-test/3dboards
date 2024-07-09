@@ -30,17 +30,17 @@ difference() {
         holes(i, cyl_height);
     }
     translate([20,25, -1]) cube([35, 40,4]);
-
-    translate([65,18, -1]) cube([25, 2,4]);
+    
     translate([65,72, -1]) cube([25, 2,4]);
+    translate([65,15, -1]) cube([25, 2,4]);
 }
 
-translate([60,20, 2]) cube([35, 2,3]);
 translate([60,70, 2]) cube([35, 2,3]);
+translate([60,17, 2]) cube([35, 2,3]);
 
 top_text("Thingy91x");
 
-bottom_text("v0.1");
+bottom_text("v1.0");
 
 
 
